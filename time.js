@@ -11,7 +11,7 @@ var now;
 var utcTime;
 var nzOffset = 13 * 3600000;
 var bneOffset = 10 * 3600000;
-var sfoOffset = 11 * 3600000;
+var cbrOffset = 11 * 3600000;
 var sfoOffset = -7 * 3600000;
 
 // sets our variable from which we can calculate timezone offsets
@@ -105,8 +105,8 @@ function bneTime() {
 
 function cbrTime() {
   var cbrTimeNow = new Date(0);
-  cbrTimeNow.setUTCMilliseconds(utcTime.getTime() + sfoOffset);
-  console.log(utcTime.getTime() + sfoOffset);
+  cbrTimeNow.setUTCMilliseconds(utcTime.getTime() + cbrOffset);
+  console.log(utcTime.getTime() + cbrOffset);
 
   var h = cbrTimeNow.getHours();
   var m = cbrTimeNow.getMinutes();
