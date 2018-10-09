@@ -1,43 +1,63 @@
-window.onload = function wlgTime() {
-  //prints current time as our base
-  var now = new Date();
+window.onload = function familyTime() {
+  setInterval(updateNow, 1000);
+
+  // call all time functions
+  setInterval(wlgTime, 1000);
+
+  // bneTime();
+  // actTime();
+  // sfoTime();
+};
+
+var now;
+
+function updateNow() {
+  now = new Date();
+}
+
+// set arrays to be used by all functions
+var months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+
+var days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+function wlgTime() {
 
   var h = now.getHours();
   var m = now.getMinutes();
   var s = now.getSeconds();
 
-  var months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ];
-
-  var days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-  ];
   m = checkTime(m);
   s = checkTime(s);
-  document.getElementById("wlgTime").innerHTML =
-    h +
-    ":" +
-    m +
-    ":"
-    + s;
+
+  document.getElementById("wlgTime").innerHTML = h + ":" + m + ":" + s;
   document.getElementById("wlgDate").innerHTML =
     days[now.getDay()] +
     " " +
@@ -46,15 +66,14 @@ window.onload = function wlgTime() {
     months[now.getMonth()] +
     " " +
     now.getFullYear();
-  var t = setTimeout(wlgTime, 500);
 
-  function checkTime(i) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    return i;
-  }
-};
+  return;
+}
+
+function bneTime() {
+
+}
+
 
 /*
   var utc_offset = now.getTimezoneOffset();
@@ -71,9 +90,6 @@ window.onload = function wlgTime() {
   sfDate.setUTCSeconds(sfTime);
   console.log("San Francisco: " + sfDate);
 
-  // San Francisco: UTC-7 hours
-  // Brisbane: UTC+10 hours
-  // ACT/NSW: UTC+11 hours
-  // NZ: UTC+13 hours
+
 };
 */
