@@ -19,7 +19,6 @@ var sfoOffset = -7 * 3600000;
 function updateNow() {
   now = new Date();
   utcTime = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
-  console.log(nzOffset);
   // represents our local time in UTC
 }
 
@@ -79,7 +78,31 @@ function wlgTime() {
   return;
 }
 
-function bneTime() {}
+function bneTime() {
+  var bneTimeNow = new Date(0);
+  bneTimeNow.setUTCMilliseconds(utcTime.getTime() + bneOffset);
+  console.log(utcTime.getTime() + bneOffset);
+
+  var h = bneTimeNow.getHours();
+  var m = bneTimeNow.getMinutes();
+  var s = bneTimeNow.getSeconds();
+
+  m = checkTime(m);
+  s = checkTime(s);
+
+  document.getElementById("bneTime").innerHTML = h + ":" + m + ":" + s;
+  document.getElementById("bneDate").innerHTML =
+    days[bneTimeNow.getDay()] +
+    " " +
+    now.getDate() +
+    " " +
+    months[bneTimeNow.getMonth()] +
+    " " +
+    now.getFullYear();
+
+  return;
+
+}
 
 /*
   var utc_offset = now.getTimezoneOffset();
