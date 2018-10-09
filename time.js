@@ -3,17 +3,27 @@ window.onload = function familyTime() {
 
   // call all time functions
   setInterval(wlgTime, 1000);
-
-  // bneTime();
+  setInterval(bneTime, 1000);
   // actTime();
   // sfoTime();
 };
-
 var now;
+var utcTime;
+var nzOffset = 13 * 3600000;
+var bneOffset = 10 * 3600000;
+var actOffset = 11 * 3600000;
+var sfoOffset = -7 * 3600000;
+
+// sets our variable from which we can calculate timezone offsets
 
 function updateNow() {
   now = new Date();
+  utcTime = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+  console.log(nzOffset);
+  // represents our local time in UTC
 }
+
+// use this for representing Now in other timezones
 
 // set arrays to be used by all functions
 var months = [
@@ -49,7 +59,6 @@ function checkTime(i) {
 }
 
 function wlgTime() {
-
   var h = now.getHours();
   var m = now.getMinutes();
   var s = now.getSeconds();
@@ -70,10 +79,7 @@ function wlgTime() {
   return;
 }
 
-function bneTime() {
-
-}
-
+function bneTime() {}
 
 /*
   var utc_offset = now.getTimezoneOffset();
