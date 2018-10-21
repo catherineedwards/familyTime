@@ -94,7 +94,7 @@ function bneTime() {
   document.getElementById("bneDate").innerHTML =
     days[bneTimeNow.getDay()] +
     " " +
-    now.getDate() +
+    bneTimeNow.getDate() +
     " " +
     months[bneTimeNow.getMonth()] +
     " " +
@@ -119,7 +119,7 @@ function cbrTime() {
   document.getElementById("cbrDate").innerHTML =
     days[cbrTimeNow.getDay()] +
     " " +
-    now.getDate() +
+    cbrTimeNow.getDate() +
     " " +
     months[cbrTimeNow.getMonth()] +
     " " +
@@ -144,7 +144,7 @@ function sfoTime() {
   document.getElementById("sfoDate").innerHTML =
     days[sfoTimeNow.getDay()] +
     " " +
-    now.getDate() +
+    sfoTimeNow.getDate() +
     " " +
     months[sfoTimeNow.getMonth()] +
     " " +
